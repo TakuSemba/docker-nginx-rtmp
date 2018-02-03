@@ -25,6 +25,6 @@ you can also receive RTMP stream with the same url.
 
 #### 4. play hls
 
-media playlist is `http://ip-address:8080/hls/stream_name.m3u8`
+media playlist is `http://ip-address/hls/stream_name.m3u8`
 
 

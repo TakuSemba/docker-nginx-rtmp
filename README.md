@@ -1,33 +1,30 @@
-NGINX RTMP Dockerfile
-=====================
+# Docker Nginx RTMP
 
-This Dockerfile installs NGINX configured with `nginx-rtmp-module`, ffmpeg
-and some default settings for HLS live streaming.
+This Dockerfile uses `nginx-rtmp-module`. Server receives RTMP streams and publish HLS.
+Note that this publishes only one resolution on HLS.
 
-**Note: in the current state, this is just an experimental project to play with
-RTMP and HLS.**
+## How to use
 
-
-How to use
-----------
-
-1. Build and run the container (`docker build -t nginx_rtmp .` &
-   `docker run -p 1935:1935 -p 8080:80 --rm nginx_rtmp`).
-
-2. Stream your live content to `rtmp://localhost:1935/encoder/stream_name` where
-   `stream_name` is the name of your stream.
-
-3. In Safari, VLC or any HLS compatible browser / player, open
-   `http://localhost:8080/hls/stream_name.m3u8`. Note that the first time,
-   it might take a few (10-15) seconds before the stream works. This is because
-   when you start streaming to the server, it needs to generate the first
-   segments and the related playlists.
+1. Build the Dockerfile
 
 
-Links
------
+```sh
+docker build -t nginx_rtmp .
+```
 
-* http://nginx.org/
-* https://github.com/arut/nginx-rtmp-module
-* https://www.ffmpeg.org/
-* https://obsproject.com/
+2. run the Container
+
+```sh
+docker run -p 1935:1935 -p 8080:80 --rm nginx_rtmp
+```
+
+3. send RTMP stream from client
+
+send stream to `rtmp://ip-address:1935/live/stream_name`. 
+you can also receive RTMP stream with the same url.
+
+4. play hls
+
+media playlist is `http://ip-address:8080/hls/stream_name.m3u8`
+
+

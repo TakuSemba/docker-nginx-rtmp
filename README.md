@@ -15,7 +15,7 @@ docker build -t nginx_rtmp .
 #### 2. run the Container
 
 ```sh
-docker run -p 1935:1935 -p 8080:80 --rm nginx_rtmp
+docker run -t -i -p 1935:1935 -p 80:80 --rm nginx_rtmp
 ```
 
 #### 3. send RTMP stream from client

@@ -5,6 +5,13 @@ Note that this publishes only one resolution on HLS.
 
 ## How to use
 
+#### 0. clone the repo
+
+```
+git clone git@github.com:TakuSemba/docker-nginx-rtmp.git
+cd docker-nginx-rtmp
+```
+
 #### 1. Build the Dockerfile
 
 
